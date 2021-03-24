@@ -1,6 +1,6 @@
 # Weather App Lab TODOs
 
-## Weather Icons
+## ✅ Weather Icons
 
 Weather Icons are from a third-party local library that can be downloaded here: https://erikflowers.github.io/weather-icons/
 
@@ -14,7 +14,7 @@ Replace each Card's IMG Element with a Weather Icon:
     <i class="wi wi-night-sunny" id="3_icon"></i>
 
 
-## Add Unique IDs to HTML Elements
+## ✅ Add Unique IDs to HTML Elements
 
 Add Unique Ids to Each Card's Title (0), Text (0_forecast), and Icon (0_icon). 
 
@@ -26,7 +26,7 @@ Add Unique Ids to Each Card's Title (0), Text (0_forecast), and Icon (0_icon).
         </div>
     </div>
 
-## Add Some Custom CSS 
+## ✅ Add Some Custom CSS 
 
 Add a new Style.css File. Give the HTML Cards and Icons some spacing
 
@@ -41,7 +41,7 @@ Add a new Style.css File. Give the HTML Cards and Icons some spacing
     }
 
 
-## Get Weather API Forecast for Grand Junction in JSON Format
+## ✅ Get Weather API Forecast for Grand Junction in JSON Format
 
 Open the following URL in a Browser and examine the format of the data.
 When you open this URL, your Browser is sending a GET Request to this API Endpoint.
@@ -49,7 +49,7 @@ When you open this URL, your Browser is sending a GET Request to this API Endpoi
     https://api.weather.gov/gridpoints/GJT/95,101/forecast
 
 
-## Now Make the Same API Request, but from JavaScript
+## ☐ Now Make the Same API Request, but from JavaScript
 
 Create a new weather.js file and add this Helper Code to makeAPI Requests
 
@@ -72,7 +72,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
 
 
 
-## Add a function to get the Forecast from the API Endpoint.
+## ☐ Add a function to get the Forecast from the API Endpoint.
 
     function getForecast() {
         
@@ -91,7 +91,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
         })
     }
 
-## Create a Function to Process the Weather Data
+## ☐ Create a Function to Process the Weather Data
 
     function updateCardsWithForecast( forecast ) {
         for (let i=0; i<7; i++) {
@@ -109,7 +109,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
         }
     }
 
-## Update Each Card's Icon Based on Forecast Text ( inside the loop )
+## ☐ Update Each Card's Icon Based on Forecast Text ( inside the loop )
 
     if ( shortForecast.includes("Snow") ) {
         document.getElementById(i+"_icon").className = "wi wi-day-snow"
