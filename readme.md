@@ -49,7 +49,7 @@ When you open this URL, your Browser is sending a GET Request to this API Endpoi
     https://api.weather.gov/gridpoints/GJT/95,101/forecast
 
 
-## ☐ Now Make the Same API Request, but from JavaScript
+## ✅ Now Make the Same API Request, but from JavaScript
 
 Create a new weather.js file and add this Helper Code to makeAPI Requests
 
@@ -72,7 +72,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
 
 
 
-## ☐ Add a function to get the Forecast from the API Endpoint.
+## ✅ Add a function to get the Forecast from the API Endpoint.
 
     function getForecast() {
         
