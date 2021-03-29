@@ -15,24 +15,53 @@ async function makeAPIRequest(requestURL) {
     }
 }
 
-function updateCardsWithForecast( forecast ) {
-    console.log( "Forecast: ") 
-    console.log( forecast )
+function updateCardsWithForecast(forecast) {
+
+    console.log("Forecast: ")
+    console.log(forecast)
+
+
+    for (var i = 0; i < 7; i++) {
+
+        console.log("Day " + i )
+        console.log(forecast[i])
+
+        var name = forecast[i].name
+        var shortForecast = forecast[i].shortForecast
+
+        // Update Name and Short Forecast
+        document.getElementById( i ).innerHTML = name
+        document.getElementById( i + "_forecast").innerHTML = shortForecast
+
+        // Update Icon based on Short Forecast Text
+        if (shortForecast.includes("Snow")) {
+            document.getElementById(i + "_icon").className = "wi wi-day-snow"
+        } else if (shortForecast.includes("Rain")) {
+            document.getElementById(i + "_icon").className = "wi wi-day-rain"
+        } else if (shortForecast.includes("Cloud")) {
+            document.getElementById(i + "_icon").className = "wi wi-day-cloudy"
+        } else {
+            document.getElementById(i + "_icon").className = "wi wi-day-sunny"
+        }
+
+    }
+
+
 }
 
 
 function getForecast() {
-    
+
     console.log("getting forecast...")
-    
+
     var forecastURL = "https://api.weather.gov/gridpoints/GJT/95,101/forecast"
 
     // Call Helper Function to make the API request and parse the JSON
     // Use JavaScript Promise to handle the response asynchronously 
-    makeAPIRequest(forecastURL).then( response => {
-        
+    makeAPIRequest(forecastURL).then(response => {
+
         // Log the full response
-        console.log("Full Response: ") 
+        console.log("Full Response: ")
         console.log(response)
 
         // Process the Important Weather Data

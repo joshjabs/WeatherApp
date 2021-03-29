@@ -91,7 +91,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
         })
     }
 
-## ☐ Create a Function to Process the Weather Data
+## ✅ Create a Function to Process the Weather Data
 
     function updateCardsWithForecast( forecast ) {
         for (let i=0; i<7; i++) {
@@ -109,7 +109,7 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
         }
     }
 
-## ☐ Update Each Card's Icon Based on Forecast Text ( inside the loop )
+## ✅ Update Each Card's Icon Based on Forecast Text ( inside the loop )
 
     if ( shortForecast.includes("Snow") ) {
         document.getElementById(i+"_icon").className = "wi wi-day-snow"
