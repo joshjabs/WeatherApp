@@ -120,3 +120,44 @@ Create a new weather.js file and add this Helper Code to makeAPI Requests
     } else {
         document.getElementById(i+"_icon").className = "wi wi-day-sunny"
     }
+
+## ☐ Get the User's Browser GeoLocation and Call a Callback when Complete
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(updateCoordinatePosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+## ☐ Define a Callback Function to Set Lat / Long 
+
+    function updateCoordinatePosition(position) {
+        
+        
+        // Update Location Coordinates
+        lat = position.coords.latitude
+        long = position.coords.longitude
+        
+        let locationMsg = "Lat: " + position.coords.latitude + "\nLong: " + position.coords.longitude; 
+        console.log(locationMsg);
+        document.getElementById("location").innerHTML = locationMsg;    
+
+        getForecastURL()
+
+    }
+
+## ☐ Get the correct Forecast URL / Weather Station for User's Provided Lat/Long 
+
+    // Gets Forecast URL from Weather API using Lat/Long
+    function getForecastURL() {
+        console.log("getting nearby weather station's forecast url...")
+        makeAPIRequest('https://api.weather.gov/points/' + lat + ',' + long).then( response => {
+            console.log(response.properties)
+            locationCode = response.properties.cwa;
+            forecastURL = response.properties.forecast;
+            document.getElementById("locationCode").innerHTML = locationCode;  
+            getForecast()  
+        })
+    }
