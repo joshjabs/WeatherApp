@@ -17,31 +17,32 @@ async function makeAPIRequest(requestURL) {
 
 function updateCardsWithForecast(forecast) {
 
+    // Log our Forecast object
     console.log("Forecast: ")
     console.log(forecast)
 
-
+    // Loop through the forecast
     for (var i = 0; i < 7; i++) {
 
+        // Log which forecase item we are on
         console.log("Day " + i )
         console.log(forecast[i])
 
+        // Update Name and Short Forecast
         var name = forecast[i].name
         var shortForecast = forecast[i].shortForecast
-
-        // Update Name and Short Forecast
         document.getElementById( i ).innerHTML = name
         document.getElementById( i + "_forecast").innerHTML = shortForecast
 
         // Update Icon based on Short Forecast Text
         if (shortForecast.includes("Snow")) {
-            document.getElementById(i + "_icon").className = "wi wi-day-snow"
+            //document.getElementById(i + "_icon").className = "wi wi-day-snow"
         } else if (shortForecast.includes("Rain")) {
-            document.getElementById(i + "_icon").className = "wi wi-day-rain"
+            //document.getElementById(i + "_icon").className = "wi wi-day-rain"
         } else if (shortForecast.includes("Cloud")) {
-            document.getElementById(i + "_icon").className = "wi wi-day-cloudy"
+            //document.getElementById(i + "_icon").className = "wi wi-day-cloudy"
         } else {
-            document.getElementById(i + "_icon").className = "wi wi-day-sunny"
+            //document.getElementById(i + "_icon").className = "wi wi-day-sunny"
         }
 
     }
@@ -61,11 +62,13 @@ function getForecast() {
     makeAPIRequest(forecastURL).then(response => {
 
         // Log the full response
-        console.log("Full Response: ")
-        console.log(response)
+        //console.log("Full Response: ")
+        //console.log(response)
 
         // Process the Important Weather Data
-        updateCardsWithForecast(response.properties.periods)
+        // call updateCardsWithForecast function and pass response.properties.periods as a parameter
+
+        console.log("finished making API request")
     })
 }
 
