@@ -36,13 +36,15 @@ function updateCardsWithForecast(forecast) {
 
         // Update Icon based on Short Forecast Text
         if (shortForecast.includes("Snow")) {
-            //document.getElementById(i + "_icon").className = "wi wi-day-snow"
+            document.getElementById(i + "_icon").className = "wi wi-day-snow"
         } else if (shortForecast.includes("Rain")) {
-            //document.getElementById(i + "_icon").className = "wi wi-day-rain"
+            document.getElementById(i + "_icon").className = "wi wi-day-rain"
         } else if (shortForecast.includes("Cloud")) {
-            //document.getElementById(i + "_icon").className = "wi wi-day-cloudy"
+            document.getElementById(i + "_icon").className = "wi wi-day-cloudy"
+        } else if (shortForecast.includes("Clear")) {
+            document.getElementById(i + "_icon").className = "wi wi-alien"
         } else {
-            //document.getElementById(i + "_icon").className = "wi wi-day-sunny"
+            document.getElementById(i + "_icon").className = "wi wi-day-sunny"
         }
 
     }
@@ -62,11 +64,12 @@ function getForecast() {
     makeAPIRequest(forecastURL).then(response => {
 
         // Log the full response
-        //console.log("Full Response: ")
-        //console.log(response)
+        console.log("Full Response: ")
+        console.log(response)
 
         // Process the Important Weather Data
         // call updateCardsWithForecast function and pass response.properties.periods as a parameter
+        updateCardsWithForecast(response.properties.periods)
 
         console.log("finished making API request")
     })
